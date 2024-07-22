@@ -64,3 +64,36 @@ class customer_invoice(Component):
     def list(self):
         invoice = self.env["account.move"].search([])
         return [{"name": i.name} for i in invoice]
+    
+    def _update_invoice_schema(self):
+        return {
+            'move_type': {'type': 'string', 'nullable': True},
+        }
+    
+    @restapi.method(
+        [(["/update/<int:_id>"], "PUT")],
+        input_param=restapi.CerberusValidator('_update_invoice_schema'),
+        output_param=restapi.CerberusValidator('_res_invoice'),
+        auth="api_key",
+    )
+    def update(self, _id, **params):
+        customer_invoice = self.env['account.move'].browse(_id)
+        res = []
+        try:
+            if not customer_invoice:
+                raise ValueError('Invoice not found')
+            
+            customer_invoice.write(params)
+            _logger.debug("======= customer_invoice_id =========")
+            _logger.info(customer_invoice)
+            res = [{
+                'code': 200,
+                'status': 'success'
+            }]
+        except Exception as e:
+            res = [{
+                'code': 404,
+                'status': 'Failed',
+                'message': str(e)
+            }]
+        return res

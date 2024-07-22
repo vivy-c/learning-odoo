@@ -1,3 +1,4 @@
 odoo-web-data/
 *.py[cod]
 *$py.class
+*.DS_Store
