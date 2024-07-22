@@ -45,6 +45,10 @@ I use existing Odoo modules :
 - [Base Rest Datamodel](https://github.com/OCA/rest-framework)
 - [Auth API Key](https://github.com/OCA/server-auth)
 - [Base Rest Auth API Key](https://github.com/OCA/rest-framework)
+- The Swagger endpoint can be accessed locally within the REST API module
+
+  <img width="550" alt="Screenshot 2024-07-23 at 01 53 50" src="https://github.com/user-attachments/assets/3643b683-54de-4ad6-bd28-b50cb8c45a52">
+
 
 </details>
 
