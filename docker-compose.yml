@@ -21,5 +21,5 @@ services:
       - POSTGRES_USER=odoo
     ports:
       - "1234:5432"
-# db master password : m4up-jwte-gsxu
+# db master password : hmyd-dd4i-tj7t
 # db master password : admin
